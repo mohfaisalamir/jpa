@@ -8,10 +8,10 @@
             Persistence unit for the Jakarta Persistence tutorial of the Hibernate Getting Started Guide
         </description>
         <mapping-file>META-INF/customer_mapping.xml</mapping-file>
+        <mapping-file>META-INF/table_mapping.xml</mapping-file>
 
-        <!--<class>com.enigma.purba_resto_jpa.enitity.Customer</class>
--->
-
+        <class>com.enigma.purba_resto_jpa.enitity.Customer</class>
+        <class>com.enigma.purba_resto_jpa.enitity.Table</class>
         <!--<entity class="com.enigma.sample_a.entity.Product">-->
         <!--<class>org.hibernate.tutorial.em.Event</class>--> <!--ini bikin error jadi dicoment-->
 
@@ -20,8 +20,8 @@
         <properties>
             <!-- Database connection settings -->
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/purba_resto" />
-            <property name="jakarta.persistence.jdbc.user" value="postgres" />
-            <property name="jakarta.persistence.jdbc.password" value="user1234" />
+            <property name="jakarta.persistence.jdbc.user" value="" />
+            <property name="jakarta.persistence.jdbc.password" value="" />
             <!--properti diatas ini menentukan database koneksi   yang kita pakai-->
 
             <!-- Automatically export the schema -->

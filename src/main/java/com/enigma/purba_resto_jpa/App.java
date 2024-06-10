@@ -1,6 +1,10 @@
 package com.enigma.purba_resto_jpa;
 
 import com.enigma.purba_resto_jpa.enitity.Customer;
+import com.enigma.purba_resto_jpa.enitity.Table;
+import com.enigma.purba_resto_jpa.repository.TableRepository;
+import com.enigma.purba_resto_jpa.repository.implement.TableRepositoryImpl;
+import com.enigma.purba_resto_jpa.util.JpaUtil;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,10 +18,43 @@ public class App {
          * merge --> untuk melakukan UPDATE
          * remove --> melakukan query remove
          * */
-        System.out.println( "Hello World!" );
-        System.out.println("EL JANCOK : "+ Customer.class);
+        /*EntityManagerFactory emf = Persistence.createEntityManagerFactory("purba_resto_jpa");
+        EntityManager em = emf.createEntityManager();*/
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("purba_resto_jpa");
+        EntityManager em = JpaUtil.getEntityManager();
+        // simulasi DELETE
+        TableRepository repository = new TableRepositoryImpl(em);
+        Table byId = repository.findById(1);
+        System.out.println(byId);
+        List<Table> all = repository.findAll();
+        System.out.println(all);
+        //repository.delete(byId);
+        //repository.findById(1);
+        em.close();
+        JpaUtil.shutDownEntityManager();
+
+        // Crud pakai ORM + implement REPO
+        //1. Insert
+        /*repository.save(table);
+        em.close();*/
+        //2. READ BY ID
+        /*Table byId = repository.findById(1);
+        System.out.println(byId);
+        em.close();*/
+        //3. READ ALL
+        /*List<Table> all = repository.findAll();
+        System.out.println(all);*/
+
+        //5. UPDATE;
+        //repository.update(new Table(null,"T20"));
+
+        //4. DELETE
+        /*Table byId = repository.findById(5);
+        repository.delete(byId);
+        em.close();*/
+
+
+
         //save(emf);
         //findById(emf);
         //findAll(emf);
@@ -25,9 +62,24 @@ public class App {
         //save(emf);
         //findAll(emf);
         //update(emf);
-        delete(emf,16);
+        //delete(emf,16);
+        //updateTable(emf,1,"T01"); // opsilain untuk melakukan update tanpa merge, tapi melakukan find, lalu ubah data "setData" tapi didalam transaction (commit-begin)
+        //emf.close();
+    }
 
-        emf.close();
+/*
+    private static void updateTable(EntityManagerFactory emf,Integer idTable, String nameTable) {
+        try(EntityManager em = emf.createEntityManager()) {
+
+            EntityTransaction transaction = em.getTransaction();
+//        Table table = new Table(null,"T03");
+            Table table = em.find(Table.class, idTable);
+            transaction.begin();
+            table.setTableName(nameTable);
+            transaction.commit();
+        }catch (RuntimeException e){
+            throw new RuntimeException();
+        }
     }
 
     private static void delete(EntityManagerFactory emf,Integer idCustomer) {
@@ -106,6 +158,6 @@ public class App {
             transaction.commit();
 
         entityManager.close();
-    }
+    }*/
 }
 //test commit II

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+                 version="2.0">
+
+
+
+
+    <entity class="com.enigma.purba_resto_jpa.enitity.Table">
+        <table name="m_table"/>
+        <attributes>
+            <id name="id">
+                <generated-value generator="table_seq" strategy="SEQUENCE"/>
+                <sequence-generator name="table_seq"
+                                    sequence-name="m_table_id_seq"
+                                    allocation-size="1"/>
+            </id>
+            <basic name="tableName">
+                <column name="name"/>
+            </basic>
+
+        </attributes>
+    </entity>
+</entity-mappings>
