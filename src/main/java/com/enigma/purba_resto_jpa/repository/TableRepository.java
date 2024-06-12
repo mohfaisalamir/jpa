@@ -1,6 +1,6 @@
 package com.enigma.purba_resto_jpa.repository;
 
-import com.enigma.purba_resto_jpa.enitity.Table;
+import com.enigma.purba_resto_jpa.enitity.*;
 
 import java.util.List;
 

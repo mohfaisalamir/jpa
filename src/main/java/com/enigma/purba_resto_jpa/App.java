@@ -1,9 +1,7 @@
 package com.enigma.purba_resto_jpa;
 
-import com.enigma.purba_resto_jpa.enitity.Customer;
+import com.enigma.purba_resto_jpa.enitity.Menu;
 import com.enigma.purba_resto_jpa.enitity.Table;
-import com.enigma.purba_resto_jpa.repository.TableRepository;
-import com.enigma.purba_resto_jpa.repository.implement.TableRepositoryImpl;
 import com.enigma.purba_resto_jpa.util.JpaUtil;
 import jakarta.persistence.*;
 
@@ -22,16 +20,18 @@ public class App {
         EntityManager em = emf.createEntityManager();*/
 
         EntityManager em = JpaUtil.getEntityManager();
+        List<Table> selectTable = em. createQuery("select c from Table c", Table.class).getResultList();
+        System.out.println(selectTable);
+        em.close();
+        JpaUtil.shutDownEntityManager();
         // simulasi DELETE
-        TableRepository repository = new TableRepositoryImpl(em);
+       /* TableRepository repository = new TableRepositoryImpl(em);
         Table byId = repository.findById(1);
         System.out.println(byId);
         List<Table> all = repository.findAll();
-        System.out.println(all);
+        System.out.println(all);*/
         //repository.delete(byId);
         //repository.findById(1);
-        em.close();
-        JpaUtil.shutDownEntityManager();
 
         // Crud pakai ORM + implement REPO
         //1. Insert
