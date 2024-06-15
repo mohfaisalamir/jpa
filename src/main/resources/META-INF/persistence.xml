@@ -13,6 +13,7 @@
         <class>com.enigma.purba_resto_jpa.enitity.Customer</class>
         <class>com.enigma.purba_resto_jpa.enitity.Table</class>
         <class>com.enigma.purba_resto_jpa.enitity.Menu</class>
+        <class>com.enigma.purba_resto_jpa.enitity.UserCredential</class>
         <!--<entity class="com.enigma.sample_a.entity.Product">-->
         <!--<class>org.hibernate.tutorial.em.Event</class>--> <!--ini bikin error jadi dicoment-->
 
