@@ -52,7 +52,7 @@ public class Menu {
     
     @Override
     public String toString() {
-        return "\nCustomer    : " +
+        return "\nMenu      : " +
                 "\n\tid     : " + id +
                 "\n\tMenu   : " + name  +
                 "\n\tPrice  : " + price +"\n"+

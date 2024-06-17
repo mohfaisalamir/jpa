@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 @Table(name = "m_customer")
 public class Customer {
     @Id
-   private String id;
+   private Integer id;
     @Column(name = "customer_name" )
    private String customerName;
     @Column(name = "customer_phone" )
@@ -20,7 +20,7 @@ public class Customer {
    @JoinColumn(name = "user_credential_id" )
    private UserCredential userCredential;
 
-    public Customer(String id, String customerName, String customerPhone, Boolean isMember, UserCredential userCredential) {
+    public Customer(Integer id, String customerName, String customerPhone, Boolean isMember, UserCredential userCredential) {
         this.id = id;
         this.customerName = customerName;
         this.customerPhone = customerPhone;
@@ -31,11 +31,11 @@ public class Customer {
     public Customer() {
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -79,7 +79,7 @@ public class Customer {
                 "\n\tcustomerName   : " + customerName  +
                 "\n\tcustomerPhone  : " + customerPhone +
                 "\n\tisMember       : " + isMember +
-                "\n\tUser Cred      : " + (userCredential != null ? userCredential.toString() : "null") +
+                "\n\tUser Cred      : " + (userCredential != null ? userCredential : "null") +
                 "\n"+"=".repeat(30);
     }
 }

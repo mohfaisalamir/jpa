@@ -1,18 +1,16 @@
-package com.enigma.purba_resto_jpa.util;
+package com.enigma.purba_resto_jpa;
 
 import com.enigma.purba_resto_jpa.dto.CustomerResponse;
 import com.enigma.purba_resto_jpa.dto.UserCredentialResponse;
 import com.enigma.purba_resto_jpa.enitity.Customer;
 import com.enigma.purba_resto_jpa.enitity.UserCredential;
+import com.enigma.purba_resto_jpa.util.JpaUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.TypedQuery;
-
-import java.util.List;
 
 public class App3 {
     public static void main(String[] args) {
-        System.out.println("HAllO");
+/*        System.out.println("HAllO");
 
         EntityManager em = JpaUtil.getEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -84,6 +82,6 @@ public class App3 {
         // save user credential (uc)
         em.persist(uc);
         //sav ecustomer
-        em.persist(customer);
+        em.persist(customer);*/
     }
 }
