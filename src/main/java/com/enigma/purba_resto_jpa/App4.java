@@ -13,20 +13,20 @@ public class App4 {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         // 1. find Customer by Id
-        Customer customer = em.find(Customer.class, 22);
+        Customer customer = em.find(Customer.class, 21);
         //System.out.println(customer);
         // 2. find Table by Id
-        Table table = em.find(Table.class, 1);
+        Table table = em.find(Table.class, 2);
         //System.out.println(table);
         // 3. find Menu by Id
-        Menu menu = em.find(Menu.class, 2);
-        Menu menu2 = em.find(Menu.class, 42);
-        Menu menu3 = em.find(Menu.class, 45);
+        Menu menu = em.find(Menu.class, 1);
+        Menu menu2 = em.find(Menu.class, 40);
+        Menu menu3 = em.find(Menu.class, 42);
         // 4. Create List of Order Detail
         List<OrderDetail> orderDetails = List.of(
-                new OrderDetail(null, null, menu, 3),
-                new OrderDetail(null, null, menu3, 4),
-                new OrderDetail(null, null, menu2, 9)
+                new OrderDetail(null, null, menu, 9),
+                new OrderDetail(null, null, menu3, 9),
+                new OrderDetail(null, null, menu2, 3)
                 );
         //System.out.println(orderDetails);
         Order order = new Order(null,new Date(),customer, table, orderDetails);
